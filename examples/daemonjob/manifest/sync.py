@@ -36,12 +36,12 @@ def new_daemon(job):
   daemon['metadata']['labels'] = copy.deepcopy(job['spec']['template']['metadata']['labels'])
   daemon['spec'] = {}
   daemon['spec']['template'] = copy.deepcopy(job['spec']['template'])
-  daemon['spec']['template']['spec']['initContainers'] = copy.deepcopy(job['spec']['template']['spec']['containers'])
-  daemon['spec']['template']['spec']['containers'] = [{
-      'name': "pause",
-      'image': job['spec'].get('pauseImage', 'gcr.io/google_containers/pause'),
-      'resources': {'requests': {'cpu': '10m'}}
-    }]
+#  daemon['spec']['template']['spec']['initContainers'] = copy.deepcopy(job['spec']['template']['spec']['containers'])
+#  daemon['spec']['template']['spec']['containers'] = [{
+#      'name': "pause",
+#      'image': job['spec'].get('pauseImage', 'gcr.io/google_containers/pause'),
+#      'resources': {'requests': {'cpu': '10m'}}
+#    }]
   daemon['spec']['selector'] = {'matchLabels': copy.deepcopy(job['spec']['template']['metadata']['labels'])}
 
   return daemon
