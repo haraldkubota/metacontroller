@@ -15,4 +15,4 @@ spec:
         resources:
           requests:
             cpu: 10m
-    terminationGracePeriodSeconds: 10
+    terminationGracePeriodSeconds: 100
